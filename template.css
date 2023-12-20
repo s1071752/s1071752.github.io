@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    font-weight: bold;
+    margin-top: 20px;
+    color: #202f83; /* 酒紅紫色 */
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 50%;
+    float: left;
+}
+
+/* 新增的樣式，使右側區域固定 */
+#result-container {
+    /* position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 50%;
+    float: right; */
+}
+
+.card {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 16px;
+    padding: 16px;
+    /* 設置合適的寬度，兩卡片並排 */
+    box-sizing: border-box;
+}
+
+.number {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 16px;
+    padding: 16px;
+    width: calc(100% - 32px);
+    box-sizing: border-box;
+}
+
+.number h2 {
+    font-size: 16px;
+    color: #301934; /* 酒紅紫色 */
+}
+
+.number ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.number li {
+    margin-bottom: 10px;
+}
+
+button {
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+#resultTextArea {
+    width: 40%;
+    height: 100px;
+    margin-bottom: 20px;
+    resize: none;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+}

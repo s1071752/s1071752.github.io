@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permutations and Combinations1</title>
+    <link rel="stylesheet" type="text/css" href="template.css">
+</head>
+
+<body>
+    <h1 style="text-align: center;">Combinatorial Calculator</h1>
+
+    <div class="card-container">
+
+        <div class="number ">
+            <h2>Permutation</h2>
+            <label><i>n</i> = </label>
+            <input type="number" id="n" value="7" min="0">
+            <label><i>r</i> = </label>
+            <input type="number" id="r" value="3" min="0"> <br />
+            <button onclick="clickPerm()">Permutation</button>
+        </div>
+
+        <div class="number ">
+            <h2>Combination</h2>
+            <label><i>n</i> = </label>
+            <input type="number" id="n" value="7" min="0">
+            <label><i>r</i> = </label>
+            <input type="number" id="r" value="3" min="0"> <br />
+            <button onclick="clickComb()">Combination</button>
+        </div>
+
+        <div class="number ">
+            <h2>Arrangement with repetition</h2>
+            <label><i>n</i> = </label>
+            <input type="number" id="n" value="7" min="0">
+            <label><i>r</i> = </label>
+            <input type="number" id="r" value="3" min="0"> <br />
+            <button onclick="clickArra()">Arrangement with repetition</button>
+        </div>
+
+        <div class="number ">
+            <h2>Selection with repetition</h2>
+            <label><i>n</i> = </label>
+            <input type="number" id="n" value="7" min="0">
+            <label><i>r</i> = </label>
+            <input type="number" id="r" value="3" min="0"> <br />
+            <button onclick="clickSele()">Selection with repetition</button>
+        </div>
+    </div>
+
+
+    <div id="result-container">
+        <h2>Result:</h2>
+        <div id="description">
+            <p>Select a sequence to view its description.</p>
+        </div>
+        <textarea id="resultTextArea" readonly></textarea>
+
+        <br />
+    </div>
+
+
+    <script>
+
+
+        function Factorial(n) {
+            fact = 1;
+
+            for (i = 2; i <= n; i++)
+
+                fact *= i;
+
+            return fact;
+
+        }
+
+        function Perm(n, r) {
+            perm = n;
+
+            for (i = n - 1; i > n - r; i--)
+
+                perm *= i;
+
+            return perm;
+
+        }
+
+        function Comb(n, r) {
+            return Perm(n, r) / Factorial(r);
+
+        }
+
+        function invalid(n, r) {
+            if (parseInt(n) < 0 || isNaN(parseInt(n))) {
+                document.getElementById("n").focus();
+
+                return true;
+
+            }
+
+            else if (parseInt(r) < 0 || isNaN(parseInt(r))) {
+                document.getElementById("r").focus();
+
+                return true;
+
+            }
+
+            return false;
+
+        }
+
+
+
+        function computeAll() {
+            document.getElementById("description").innerHTML = "";
+
+            document.getElementById("description").innerHTML = "";
+
+            document.getElementById("description").innerHTML = "";
+
+            document.getElementById("description").innerHTML = "";
+
+            n = document.getElementById("n").value;
+
+            r = document.getElementById("r").value;
+
+            if (invalid(n, r)) return;
+
+            clickPerm();
+
+            clickComb();
+
+            clickArra();
+
+            clickSele();
+
+        }
+
+
+
+        function clickPerm() {
+            document.getElementById("resPermutation").innerHTML = "";
+
+            n = document.getElementById("n").value;
+
+            r = document.getElementById("r").value;
+
+            if (invalid(n, r)) return;
+
+            document.getElementById("description").innerHTML = Perm(n, r);
+
+        }
+
+
+
+        function clickComb() {
+            document.getElementById("resCombination").innerHTML = "";
+
+            n = document.getElementById("n").value;
+
+            r = document.getElementById("r").value;
+
+            if (invalid(n, r)) return;
+
+            document.getElementById("description").innerHTML = Comb(n, r);
+
+        }
+
+
+
+        function clickArra() {
+            document.getElementById("resArrangement").innerHTML = ""
+
+            n = document.getElementById("n").value;
+
+            r = document.getElementById("r").value;
+
+            if (invalid(n, r)) return;
+
+            document.getElementById("description").innerHTML = Math.pow(n, r);
+
+        }
+
+
+
+        function clickSele() {
+            document.getElementById("resSelectrofn").innerHTML = "";
+
+            n = parseInt(document.getElementById("n").value);
+
+            r = parseInt(document.getElementById("r").value);
+
+            if (invalid(n, r)) return;
+
+            document.getElementById("description").innerHTML = Comb(n + r - 1, r);
+
+        }
+
+    </script>
+</body>
+
+</html>

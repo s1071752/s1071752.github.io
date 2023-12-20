@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabbed Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+
+        #sidebar {
+            width: 20%;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #content {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .tab {
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="sidebar">
+        <div class="tab" onclick="openTab('tab1')">Tab 1</div>
+        <div class="tab" onclick="openTab('tab2')">Tab 2</div>
+        <div class="tab" onclick="openTab('tab3')">Tab 3</div>
+    </div>
+
+    <div id="content">
+        <div id="tab1" class="tab-content" include-html="tab1.html">1</div>
+        <div id="tab2" class="tab-content" include-html="tab2.html">2</div>
+        <div id="tab3" class="tab-content" include-html="tab3.html">3</div>
+    </div>
+
+    <script>
+        function openTab(tabName) {
+            var i, tabContent;
+            tabContent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabContent.length; i++) {
+                tabContent[i].style.display = "none";
+            }
+            document.getElementById(tabName).style.display = "block";
+
+            // Load HTML content
+            var htmlFile = document.getElementById(tabName).getAttribute("include-html");
+            if (htmlFile) {
+                loadHTML(tabName, htmlFile);
+            }
+        }
+
+        function loadHTML(tabName, htmlFile) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById(tabName).innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", htmlFile, true);
+            xhttp.send();
+        }
+
+        // Initial tab opening
+        openTab('tab1');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permutations and Combinations2</title>
+    <link rel="stylesheet" type="text/css" href="template.css">
+</head>
+
+<body>
+    <h1 style="text-align: center;">Combinatorial Calculator</h1>
+
+    <div class="card-container">
+        <div class="number ">
+            <h2>Catalan Number</h2>
+            <label for="inputN">Enter the value of n:</label>
+            <input type="number" id="inputN" min="0"> <br />
+            <button onclick="calculate('catalan')">Catalan Number</button>  
+        </div>
+
+        <div class="number ">
+            <h2>Triangular Number</h2>
+            <label for="inputN">Enter the value of n:</label>
+            <input type="number" id="inputN" min="0"> <br />
+            <button onclick="calculate('triangular')">Triangular Number</button>  
+        </div>
+
+        <div class="number ">
+            <h2>Harmonic Number</h2>
+            <label for="inputN">Enter the value of n:</label>
+            <input type="number" id="inputN" min="0"> <br />
+            <button onclick="calculate('harmonic')">Harmonic Number</button>  
+        </div>
+
+        <div class="number ">
+            <h2>Fibonacci Number</h2>
+            <label for="inputN">Enter the value of n:</label>
+            <input type="number" id="inputN" min="0"> <br />
+            <button onclick="calculate('fibonacci')">Fibonacci Number</button>  
+        </div>
+
+        <div class="number ">
+            <h2>Lucas Number</h2>
+            <label for="inputN">Enter the value of n:</label>
+            <input type="number" id="inputN" min="0"> <br />
+            <button onclick="calculate('lucas')">Lucas Number</button>  
+        </div>
+    </div>
+
+
+    <div id="result-container">
+        <h2>Result:</h2>
+        <div id="description">
+            <p>Select a sequence to view its description.</p>
+        </div>
+        <textarea id="resultTextArea" readonly></textarea>
+
+        <br />
+    </div>
+
+
+    <script>
+        function calculate(sequence) {
+            var n = parseInt(document.getElementById('inputN').value);
+            var resultTextArea = document.getElementById('resultTextArea');
+            var result;
+
+            switch (sequence) {
+                case 'catalan':
+                    result = calculateCatalan(n);
+                    break;
+                case 'triangular':
+                    result = calculateTriangular(n);
+                    break;
+                case 'harmonic':
+                    result = calculateHarmonic(n);
+                    break;
+                case 'fibonacci':
+                    result = calculateFibonacci(n);
+                    break;
+                case 'lucas':
+                    result = calculateLucas(n);
+                    break;
+                case 'eulerian':
+                    result = calculateEulerian(n);
+                    break;
+                case 'stirling':
+                    result = calculateStirling(n);
+                    break;
+                default:
+                    result = "Invalid sequence";
+            }
+
+            resultTextArea.value = "Result for " + sequence + " with n=" + n + ": " + result;
+            updateDescription(sequence);
+        }
+
+        function updateDescription(sequence) {
+            var descriptionElement = document.getElementById('description');
+            var description;
+
+            switch (sequence) {
+                case 'catalan':
+                    description = "<strong>Catalan Number:</strong> A sequence of natural numbers that occur in various counting problems.";
+                    break;
+                case 'triangular':
+                    description = "<strong>Triangular Number:</strong> The sum of the first n natural numbers.";
+                    break;
+                case 'harmonic':
+                    description = "<strong>Harmonic Number:</strong> The sum of the reciprocals of the first n natural numbers.";
+                    break;
+                case 'fibonacci':
+                    description = "<strong>Fibonacci Number:</strong> A series of numbers in which each number is the sum of the two preceding ones.";
+                    break;
+                case 'lucas':
+                    description = "<strong>Lucas Number:</strong> A series of numbers related to the Fibonacci sequence.";
+                    break;
+                case 'eulerian':
+                    description = "<strong>Eulerian Number:</strong> A number that counts the number of permutations of the numbers 1 to n in which exactly k elements are greater than the previous element.";
+                    break;
+                case 'stirling':
+                    description = "<strong>Stirling Number:</strong> The number of ways to partition a set of n objects into k non-empty subsets.";
+                    break;
+                default:
+                    description = "<p>Select a sequence to view its description.</p>";
+            }
+
+            descriptionElement.innerHTML = description;
+        }
+
+
+        function calculateCatalan(n) {
+            if (n < 0) {
+                return ["Invalid input. Please enter a non-negative integer."];
+            }
+
+            // Initialize variables to store factorials
+            let numerator = 1;
+            let denominator = 1;
+
+            // Initialize array to store the sequence
+            const catalanSequence = [];
+
+            // Calculate and push each term in the sequence
+            for (let i = 0; i <= n; i++) {
+                catalanSequence.push(numerator / denominator);
+
+                // Update numerator for the next term
+                numerator *= (2 * n - i);
+
+                // Update denominator for the next term
+                denominator *= (i + 1);
+            }
+
+            return catalanSequence;
+        }
+
+
+        function calculateTriangular(n) {
+    if (n < 0) {
+        return ["Invalid input. Please enter a non-negative integer."];
+    }
+
+    // Initialize array to store the sequence
+    const triangularSequence = [];
+
+    // Calculate and push each term in the sequence
+    for (let i = 0; i <= n; i++) {
+        triangularSequence.push((i * (i + 1)) / 2);
+    }
+
+    return triangularSequence;
+}
+
+function calculateHarmonic(n) {
+    if (n < 1) {
+        return ["Invalid input. Please enter a positive integer."];
+    }
+
+    // Initialize array to store the sequence
+    const harmonicSequence = [];
+
+    // Calculate and push each term in the sequence
+    let harmonicNumber = 0;
+    for (let i = 1; i <= n; i++) {
+        harmonicNumber += 1 / i;
+        harmonicSequence.push(harmonicNumber);
+    }
+
+    return harmonicSequence;
+}
+
+function calculateFibonacci(n) {
+    if (n < 0) {
+        return ["Invalid input. Please enter a non-negative integer."];
+    }
+
+    // Initialize array to store the sequence
+    const fibonacciSequence = [];
+
+    // Calculate and push each term in the sequence
+    for (let i = 0; i <= n; i++) {
+        fibonacciSequence.push(calculateFibonacci(i));
+    }
+
+    return fibonacciSequence;
+}
+
+function calculateLucas(n) {
+    if (n < 0) {
+        return ["Invalid input. Please enter a non-negative integer."];
+    }
+
+    // Initialize array to store the sequence
+    const lucasSequence = [];
+
+    // Calculate and push each term in the sequence
+    for (let i = 0; i <= n; i++) {
+        lucasSequence.push(calculateLucas(i));
+    }
+
+    return lucasSequence;
+}
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
