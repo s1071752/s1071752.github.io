@@ -41,8 +41,67 @@
         <br />
     </div>
 
-
-   
 </body>
+    <script>
+        function calculate(sequence) {
+            var resultTextArea = document.getElementById('resultTextArea');
+            var result;
 
+            switch (sequence) {
+                case 'Eulerian':
+                    var m1 = parseInt(document.getElementById('m1').value);
+                    var k = parseInt(document.getElementById('k').value);
+                    result = calculateEulerian(m1, k);
+                    break;
+                case 'Stirling':
+                    var m2 = parseInt(document.getElementById('m2').value);
+                    var n = parseInt(document.getElementById('n').value);
+                    result = calculateStirling(m2, n);
+                    break;
+                default:
+                    result = "Invalid sequence";
+            }
+
+            resultTextArea.value = "Result for " + sequence + ": " + result;
+            updateDescription(sequence);
+        }
+
+        function updateDescription(sequence) {
+            var descriptionElement = document.getElementById('description');
+            var description;
+
+            switch (sequence) {
+                case 'Eulerian':
+                    description = "<strong>Eulerian Numbers:</strong> Numbers that arise in combinatorics, determining the number of permutations of 1 to n with exactly k ascents.";
+                    break;
+                case 'Stirling':
+                    description = "<strong>Stirling Number:</strong> The number of ways to partition a set of n objects into m non-empty subsets.";
+                    break;
+                default:
+                    description = "<p>Select a sequence to view its description.</p>";
+            }
+
+            descriptionElement.innerHTML = description;
+        }
+
+        function calculateEulerian(m, k) {
+            if (m < 0 || k < 0 || k > m) {
+                return "Invalid input. Please enter valid values for n and k.";
+            }
+
+            // Your Eulerian calculation logic here
+            // Replace the following line with your actual calculation
+            return "Eulerian(" + m + ", " + k + ") = " + (m + k);
+        }
+
+        function calculateStirling(m, n) {
+            if (m < 0 || n < 0 || m < n) {
+                return "Invalid input. Please enter valid values for m and n.";
+            }
+
+            // Your Stirling number calculation logic here
+            // Replace the following line with your actual calculation
+            return "Stirling(" + m + ", " + n + ") = " + (m * n);
+        }
+    </script>
 </html>
