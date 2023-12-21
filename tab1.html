@@ -150,7 +150,7 @@
             if (invalid(n, r)) return;
 
             document.getElementById("resultTextArea").innerHTML = Perm(n, r);
-
+            document.getElementById("description").innerHTML = "Permutations of size r from n distinct objects";
         }
 
 
@@ -165,7 +165,7 @@
             if (invalid(n, r)) return;
 
             document.getElementById("resultTextArea").innerHTML = Comb(n, r);
-
+            document.getElementById("description").innerHTML = "Selections/Combinations of size r from n distinct objects";
         }
 
 
@@ -180,7 +180,7 @@
             if (invalid(n, r)) return;
 
             document.getElementById("resultTextArea").innerHTML = Math.pow(n, r);
-
+            document.getElementById("description").innerHTML = "Arrangements with repetition of size r from n distinct objects";
         }
 
 
@@ -195,6 +195,7 @@
             if (invalid(n, r)) return;
 
             document.getElementById("resultTextArea").innerHTML = Comb(n + r - 1, r);
+            document.getElementById("description").innerHTML = "Selections with repetition of size r from n distinct objects";
 
         }
 
