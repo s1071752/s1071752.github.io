@@ -154,7 +154,7 @@
             if (invalid(n, r)) return;
 
             document.getElementById("resultTextArea").innerHTML = Perm(n, r);
-            document.getElementById("description").innerHTML = "Permutations of size r from n distinct objects";
+            document.getElementById("description").innerHTML = "<strong>Permutation:</strong>Permutations of size r from n distinct objects";
         }
 
 
@@ -169,7 +169,7 @@
             if (invalid(n, r)) return;
 
             document.getElementById("resultTextArea").innerHTML = Comb(n, r);
-            document.getElementById("description").innerHTML = "Selections/Combinations of size r from n distinct objects";
+            document.getElementById("description").innerHTML = "<strong>Combination:</strong>Selections/Combinations of size r from n distinct objects";
         }
 
 
@@ -184,7 +184,7 @@
             if (invalid(n, r)) return;
 
             document.getElementById("resultTextArea").innerHTML = Math.pow(n, r);
-            document.getElementById("description").innerHTML = "Arrangements with repetition of size r from n distinct objects";
+            document.getElementById("description").innerHTML = "<strong>Arrangement with repetition	:</strong>Arrangements with repetition of size r from n distinct objects";
         }
 
 
@@ -199,7 +199,7 @@
             if (invalid(n, r)) return;
 
             document.getElementById("resultTextArea").innerHTML = Comb(n + r - 1, r);
-            document.getElementById("description").innerHTML = "Selections with repetition of size r from n distinct objects";
+            document.getElementById("description").innerHTML = "<strong>Selection with repetition:</strong>Selections with repetition of size r from n distinct objects";
 
         }
 
