@@ -39,45 +39,55 @@
 
 
     <script>
-       /*part3*/
-function computeEulerian(m, k) {
-    if (k === 0 && m === 0) {
-        return 1;
-    } else if (k < 0 || k >= m) {
-        return 0;
-    } else {
-        return (k + 1) * computeEulerian(m - 1, k) + (m - k) * computeEulerian(m - 1, k - 1);
-    }
-}
+               /*part3*/
+        function computeEulerian(m, k) {
+            if (k === 0 && m === 0) {
+                return 1;
+            } else if (k < 0 || k >= m) {
+                return 0;
+            } else {
+                return (k + 1) * computeEulerian(m - 1, k) + (m - k) * computeEulerian(m - 1, k - 1);
+            }
+        }
 
-function computeStirling(m, n) {
-    if (n === 0 && m === 0) {
-        return 1;
-    } else if (n > m || n <= 0) {
-        return 0;
-    } else {
-        return n * computeStirling(m - 1, n) + computeStirling(m - 1, n - 1);
-    }
-}
 
-function clickEulerian() {
-    var m = parseInt(document.getElementById('m1').value);
-    var result = [];
-    for (var k = 0; k <= m - 1; k++) {
-        result.push(computeEulerian(m, k));
-    }
-    document.getElementById('Eulerian').innerHTML = result.join(", ");
-}
 
-function clickStir() {
-    var m = parseInt(document.getElementById('m1').value);
-    var n = parseInt(document.getElementById('n2').value);
-    var result = [];
-    for (var i = 1; i <= n; i++) {
-        result.push(computeStirling(m, i));
-    }
-    document.getElementById('Stirling').innerHTML = result.join(", ");
-}
+        function clickEulerian() {
+            var m = parseInt(document.getElementById('m1').value);
+            var result = [];
+            for (var k = 0; k <= m - 1; k++) {
+                result.push(computeEulerian(m, k));
+            }
+            document.getElementById('description').innerHTML = "Eulerian numbers with respect to m, k for 0<=k<=m-1 (i.e., a_sub(m,0), a_sub(m,1), ... , a_sub(m,m-1) ) ";
+
+            document.getElementById('resultTextArea').innerHTML = result.join(", ");
+        }
+        function computeStirling(m, n) {
+            if (n === 0 && m === 0) {
+                return 1;
+            } else if (n > m || n <= 0) {
+                return 0;
+            } else {
+                return n * computeStirling(m - 1, n) + computeStirling(m - 1, n - 1);
+            }
+        }
+
+        function generateStirlingRow(m) {
+            let row = [];
+            for (let n = 1; n <= m; n++) {
+                row.push(computeStirling(m, n));
+            }
+            return row;
+        }
+
+        function clickStir() {
+            var m = parseInt(document.getElementById('m2').value);
+            var result = generateStirlingRow(m);
+            document.getElementById('description').innerHTML = "Stirling number of the second kind with respect to m, n for 1<=n<=m (i.e., S_sub(m,1), S_sub(m,2), ... , S_sub(m,n) ) ";
+            document.getElementById('resultTextArea').innerHTML = result.join(", ");
+        }
+
+        
     </script>
 </body>
 </html>
