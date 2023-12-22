@@ -368,7 +368,85 @@
       document.getElementById("resSelectrofn").innerHTML = Comb(n + r - 1, r);
 
     }
+// Triangular Number function
+    function computeTriangular(n) {
+        let result = (n * (n + 1)) / 2;
+        return result;
+    }
 
+    // Harmonic Number function
+    function computeHarmonic(n) {
+        let result = 0;
+        for (let i = 1; i <= n; i++) {
+            result += 1 / i;
+        }
+        return result;
+    }
+
+    // Fibonacci Numbers function
+    function computeFibonacci(n) {
+        if (n <= 1) {
+            return n;
+        } else {
+            let a = 0, b = 1, temp;
+            for (let i = 2; i <= n; i++) {
+                temp = a + b;
+                a = b;
+                b = temp;
+            }
+            return b;
+        }
+    }
+
+    // Lucas Numbers function
+    function computeLucas(n) {
+        if (n === 0) {
+            return 2;
+        } else if (n === 1) {
+            return 1;
+        } else {
+            let a = 2, b = 1, temp;
+            for (let i = 2; i <= n; i++) {
+                temp = a + b;
+                a = b;
+                b = temp;
+            }
+            return b;
+        }
+    }
+
+    function clickCatalan() {
+        var n = parseInt(document.getElementById('n').value);
+        document.getElementById('resCatalan').innerHTML = computeTriangular(n);
+    }
+
+    function clickTriangular() {
+        var n = parseInt(document.getElementById('n').value);
+        document.getElementById('resTriangular').innerHTML = computeTriangular(n);
+    }
+
+    function clickHarmonic() {
+        var n = parseInt(document.getElementById('n').value);
+        document.getElementById('resHarmonic').innerHTML = computeHarmonic(n).toFixed(4);
+    }
+
+    function clickFibonacci() {
+        var n = parseInt(document.getElementById('n').value);
+        document.getElementById('resFibonacci').innerHTML = computeFibonacci(n);
+    }
+
+    function clickLucas() {
+        var n = parseInt(document.getElementById('n').value);
+        document.getElementById('resLucas').innerHTML = computeLucas(n);
+    }
+
+    function computeAllSequence() {
+        clickCatalan();
+        clickTriangular();
+        clickHarmonic();
+        clickFibonacci();
+        clickLucas();
+    }
   </script>
 
 </body>
