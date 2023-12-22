@@ -47,35 +47,18 @@
 
     <tr bgcolor="ccddcc" ;>
 
-      <th>Formula
-
-      </th>
+      <th>Formula</th>
 
       <th><label><i>n</i> = </label>
-
         <input type="number" id="n" value="7" min="0">
-
         <label><i>r</i> = </label>
-
         <input type="number" id="r" value="3" min="0">
-
       </th>
-
-      <th><button type="button" onclick="computeAll()">Compute All</button>
-
-      </th>
-
-      <th>Order relevant
-
-      </th>
-
-      <th>Repetition
-
-      </th>
-
-      <th>Memo
-
-      </th>
+      
+      <th><button type="button" onclick="computeAll()">Compute All</button></th>
+      <th>Order relevant</th>
+      <th>Repetition</th>
+      <th>Memo</th>
 
     </tr>
 
@@ -83,163 +66,65 @@
 
     <tr>
 
-      <td>
+      <td><label><i>P</i>(<i>n</i>, <i>r</i>)</label></td>
 
-        <label><i>P</i>(<i>n</i>, <i>r</i>)</label>
+      <td><span id="resPermutation"></span></td>
 
-      </td>
+      <td><button type="button" onclick="clickPerm()">Permutation</button></td>
 
-      <td>
+      <td> yes </td>
 
+      <td>  no  </td>
 
-
-        <span id="resPermutation"></span>
-
-      </td>
-
-      <td>
-
-        <button type="button" onclick="clickPerm()">Permutation</button>
-
-      </td>
-
-      <td>
-
-        yes
-
-      </td>
-
-      <td>
-
-        no
-
-      </td>
-
-      <td align="left">
-
-        # Permutations of size <i>r</i> from <i>n</i> distinct objects
-
-      </td>
+      <td align="left">   # Permutations of size <i>r</i> from <i>n</i> distinct objects    </td>
 
     </tr>
 
     <tr>
 
-      <td>
+      <td>  <label><i>C</i>(<i>n</i>, <i>r</i>)</label>  </td>
 
-        <label><i>C</i>(<i>n</i>, <i>r</i>)</label>
+      <td>  <span id="resCombination"></span>    </td>
 
-      </td>
+      <td>  <button type="button" onclick="clickComb()">Combination</button>   </td>
 
-      <td>
+      <td>  no  </td>
 
-        <span id="resCombination"></span>
+      <td>  no  </td>
 
-      </td>
-
-      <td>
-
-        <button type="button" onclick="clickComb()">Combination</button>
-
-      </td>
-
-      <td>
-
-        no
-
-      </td>
-
-      <td>
-
-        no
-
-      </td>
-
-      <td align="left">
-
-        # Selections/Combinations of size <i>r</i> from <i>n</i> distinct objects
-
-      </td>
+      <td align="left">   # Selections/Combinations of size <i>r</i> from <i>n</i> distinct objects   </td>
 
     </tr>
 
     <tr>
 
-      <td>
+      <td>  <label><i>n<sup>r</sup></i></label> </td>
 
-        <label><i>n<sup>r</sup></i></label>
+      <td>  <span id="resArrangement"></span>  </td>
 
-      </td>
+      <td>  <button type="button" onclick="clickArra()">Arrangement with repetition</button>   </td>
 
-      <td>
+      <td>   yes   </td>
 
-        <span id="resArrangement"></span>
+      <td>   yes   </td>
 
-      </td>
-
-      <td>
-
-        <button type="button" onclick="clickArra()">Arrangement with repetition</button>
-
-      </td>
-
-      <td>
-
-        yes
-
-      </td>
-
-      <td>
-
-        yes
-
-      </td>
-
-      <td align="left">
-
-        # Arrangements with repetition of size <i>r</i> from <i>n</i> distinct objects
-
-      </td>
+      <td align="left">      # Arrangements with repetition of size <i>r</i> from <i>n</i> distinct objects    </td>
 
     </tr>
 
     <tr>
 
-      <td>
+      <td>  <label><i>C</i>(<i>r</i>+<i>n</i>-1, <i>r</i>)</label>   </td>
 
-        <label><i>C</i>(<i>r</i>+<i>n</i>-1, <i>r</i>)</label>
+      <td>  <span id="resSelectrofn"></span>  </td>
 
-      </td>
+      <td>  <button type="button" onclick="clickSele()">Selection with repetition</button>   </td>
 
-      <td>
+      <td>  no   </td>
 
-        <span id="resSelectrofn"></span>
+      <td>   yes   </td>
 
-      </td>
-
-      <td>
-
-        <button type="button" onclick="clickSele()">Selection with repetition</button>
-
-      </td>
-
-      <td>
-
-        no
-
-      </td>
-
-      <td>
-
-        yes
-
-      </td>
-
-      <td align="left">
-
-        # Selections with repetition of size <i>r</i> from <i>n</i> distinct objects
-
-      </td>
+      <td align="left">   # Selections with repetition of size <i>r</i> from <i>n</i> distinct objects    </td>
 
     </tr>
 
