@@ -210,18 +210,15 @@
 
   <h2> Part 3</h2>
   <table>
-
     <tr bgcolor="ccddcc" ;>
-
       <th>Formula</th>
-
-      <th><label><i>n</i> = </label>
-        <input type="number" id="n" value="7" min="0">
-        <label><i>r</i> = </label>
-        <input type="number" id="r" value="3" min="0">
+      <th><label><i>m</i> = </label>
+        <input type="number" id="m1" value="7" min="0">
+        <label><i>k</i> = </label>
+        <input type="number" id="k1" value="3" min="0">
       </th>
       
-      <th><button type="button" onclick="computeAll()">Compute All</button></th>
+      <th></th>
       <th>Order relevant</th>
       <th>Repetition</th>
       <th>Memo</th>
@@ -230,15 +227,15 @@
 
     <tr>
 
-      <td>  <label><i>C</i>(<i>n</i>, <i>r</i>)</label>  </td>
+      <td>  formula  </td>
 
-      <td>  <span id="resCombination"></span>    </td>
+      <td>  <span id="Eulerian"></span>    </td>
 
-      <td>  <button type="button" onclick="clickComb()">Combination</button>   </td>
+      <td>  <button type="button" onclick="clickEulerian()">Eulerian numbers</button>   </td>
 
-      <td>  no  </td>
+      <td>     </td>
 
-      <td>  no  </td>
+      <td>     </td>
 
       <td align="left">   # Selections/Combinations of size <i>r</i> from <i>n</i> distinct objects   </td>
 
@@ -253,35 +250,26 @@
       <th>Formula</th>
 
       <th><label><i>n</i> = </label>
-        <input type="number" id="n" value="7" min="0">
-        <label><i>r</i> = </label>
-        <input type="number" id="r" value="3" min="0">
+        <input type="number" id="n2" value="7" min="0">
+        <label><i>m</i> = </label>
+        <input type="number" id="m2" value="3" min="0">
       </th>
       
-      <th><button type="button" onclick="computeAll()">Compute All</button></th>
-      <th>Order relevant</th>
-      <th>Repetition</th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
       <th>Memo</th>
 
     </tr>
 
     <tr>
-
-      <td>  <label><i>C</i>(<i>n</i>, <i>r</i>)</label>  </td>
-
-      <td>  <span id="resCombination"></span>    </td>
-
-      <td>  <button type="button" onclick="clickComb()">Combination</button>   </td>
-
-      <td>  no  </td>
-
-      <td>  no  </td>
-
-      <td align="left">   # Selections/Combinations of size <i>r</i> from <i>n</i> distinct objects   </td>
-
+      <td>  formula</td>
+      <td>  <span id="Stirling"></span>    </td>
+      <td>  <button type="button" onclick="clickStir()">Stirling number</button>   </td>
+      <td>    </td>
+      <td>    </td>
+      <td align="left">   #Stirling number of the second kind with respect to m, n for 1<=n<=m (i.e., S_sub(m,1), S_sub(m,2), ... , S_sub(m,n) ) </td>
     </tr>
-
-
   </table>
   
 
