@@ -127,87 +127,68 @@
 
   <h2> Part 2</h2>
   <table>
-
     <tr bgcolor="ccddcc" ;>
-
       <th>Formula</th>
-
-      <th><label><i>n</i> = </label>
+      <th>
+        <label><i>n</i> = </label>
         <input type="number" id="n" value="7" min="0">
-        <label><i>r</i> = </label>
-        <input type="number" id="r" value="3" min="0">
       </th>
-      
-      <th><button type="button" onclick="computeAll()">Compute All</button></th>
+      <th><button type="button" onclick="computeAllSequence()">Compute All</button></th>
       <th>Order relevant</th>
       <th>Repetition</th>
       <th>Memo</th>
 
     </tr>
 
-
-
     <tr>
-
       <td><label><i>P</i>(<i>n</i>, <i>r</i>)</label></td>
-
-      <td><span id="resPermutation"></span></td>
-
-      <td><button type="button" onclick="clickPerm()">Permutation</button></td>
-
-      <td> yes </td>
-
-      <td>  no  </td>
-
+      <td><span id="resCatalan"></span></td>
+      <td><button type="button" onclick="clickCatalan()">Catalan</button></td>
+      <td>  </td>
+      <td>  </td>
       <td align="left">   # Permutations of size <i>r</i> from <i>n</i> distinct objects    </td>
-
     </tr>
 
     <tr>
-
       <td>  <label><i>C</i>(<i>n</i>, <i>r</i>)</label>  </td>
-
-      <td>  <span id="resCombination"></span>    </td>
-
-      <td>  <button type="button" onclick="clickComb()">Combination</button>   </td>
-
-      <td>  no  </td>
-
-      <td>  no  </td>
-
+      <td>  <span id="resTriangular"></span>    </td>
+      <td>  <button type="button" onclick="clickTriangular()">Triangular</button>   </td>
+      <td>   </td>
+      <td>   </td>
       <td align="left">   # Selections/Combinations of size <i>r</i> from <i>n</i> distinct objects   </td>
-
     </tr>
 
     <tr>
 
       <td>  <label><i>n<sup>r</sup></i></label> </td>
-
-      <td>  <span id="resArrangement"></span>  </td>
-
-      <td>  <button type="button" onclick="clickArra()">Arrangement with repetition</button>   </td>
-
-      <td>   yes   </td>
-
-      <td>   yes   </td>
-
+      <td>  <span id="resHarmonic"></span>  </td>
+      <td>  <button type="button" onclick="clickHarmonic()">Harmonic</button>   </td>
+      <td>     </td>
+      <td>     </td>
       <td align="left">      # Arrangements with repetition of size <i>r</i> from <i>n</i> distinct objects    </td>
-
     </tr>
 
     <tr>
-
       <td>  <label><i>C</i>(<i>r</i>+<i>n</i>-1, <i>r</i>)</label>   </td>
-      <td>  <span id="resSelectrofn"></span>  </td>
-      <td>  <button type="button" onclick="clickSele()">Selection with repetition</button>   </td>
-      <td>  no   </td>
-      <td>   yes   </td>
+      <td>  <span id="resFibonacci"></span>  </td>
+      <td>  <button type="button" onclick="clickFibonacci()">Fibonacci</button>   </td>
+      <td>     </td>
+      <td>     </td>
       <td align="left">   # Selections with repetition of size <i>r</i> from <i>n</i> distinct objects    </td>
-
     </tr>
 
+    <tr>
+      <td>  <label><i>C</i>(<i>r</i>+<i>n</i>-1, <i>r</i>)</label>   </td>
+      <td>  <span id="resLucas"></span>  </td>
+      <td>  <button type="button" onclick="clickLucas()">Lucas </button>   </td>
+      <td>     </td>
+      <td>     </td>
+      <td align="left">   # Selections with repetition of size <i>r</i> from <i>n</i> distinct objects    </td>
+    </tr>
+    
   </table>
 
+  
   <h2> Part 3</h2>
   <table>
     <tr bgcolor="ccddcc" ;>
@@ -228,15 +209,10 @@
     <tr>
 
       <td>  formula  </td>
-
       <td>  <span id="Eulerian"></span>    </td>
-
       <td>  <button type="button" onclick="clickEulerian()">Eulerian numbers</button>   </td>
-
       <td>     </td>
-
       <td>     </td>
-
       <td align="left">   # Selections/Combinations of size <i>r</i> from <i>n</i> distinct objects   </td>
 
     </tr>
@@ -248,13 +224,11 @@
     <tr bgcolor="ccddcc" ;>
 
       <th>Formula</th>
-
       <th><label><i>n</i> = </label>
         <input type="number" id="n2" value="7" min="0">
         <label><i>m</i> = </label>
         <input type="number" id="m2" value="3" min="0">
       </th>
-      
       <th> </th>
       <th> </th>
       <th> </th>
