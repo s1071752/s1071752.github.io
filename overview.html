@@ -480,11 +480,17 @@ function computeLucas(n) {
         document.getElementById('Catalan').innerHTML = generateSequenceText(computeCatalan, n);
         document.getElementById('resCatalan').innerHTML = computeCatalan(n);
     }
-
+function calculateTriangularSum(n) {
+    let sum = 0;
+    for (let i = 1; i <= n; i++) {
+        sum += computeTriangular(i);
+    }
+    return sum;
+}
     function clickTriangular() {
         var n = parseInt(document.getElementById('n').value);
         document.getElementById('Triangular').innerHTML = generateSequenceText(computeTriangular, n);
-        document.getElementById('resTriangular').innerHTML = computeTriangular(n);
+        document.getElementById('resTriangular').innerHTML = calculateTriangularSum(n);
     }
 
 function clickLucas() {
