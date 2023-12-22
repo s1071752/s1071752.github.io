@@ -62,8 +62,6 @@
 
     </tr>
 
-
-
     <tr>
 
       <td><label><i>P</i>(<i>n</i>, <i>r</i>)</label></td>
@@ -234,7 +232,7 @@
 
   <script>
 
-
+/*part1*/
     function Factorial(n) {
       fact = 1;
 
@@ -369,14 +367,24 @@
     }
 
 
-    /*part2*/
+  /*part2*/
 function generateSequenceText(sequence, n) {
-        let result = [];
-        for (let i = 0; i < n; i++) {
-            result.push(sequence(i));
-        }
-        return result.join(", ");
+    let result = [];
+    for (let i = 1; i <= n; i++) {
+        result.push(sequence(i));
     }
+    return result.join(", ");
+}
+
+function computeHarmonic(n) {
+    let result = 0;
+    let sequence = [];
+    for (let i = 1; i <= n; i++) {
+        result += 1 / i;
+        sequence.push(`1/${i}`);
+    }
+    return { sum: result.toFixed(4), sequence: sequence.join(", ") };
+}
 
 function computeCatalan(n) {
     if (n === 0) {
@@ -421,14 +429,6 @@ function computeLucas(n) {
     }
 }
 
-function clickLucas() {
-    var n = parseInt(document.getElementById('n').value);
-    var lucasSequence = generateSequenceText(computeLucas, n);
-    document.getElementById('Lucas').innerHTML = computeLucas(n-1);//lucasSequence;
-    document.getElementById('resLucas').innerHTML = computeLucas(n)[n-1]; // 顯示第 n 個 Lucas 數
-}
-
-
 
     function computeFibonacci(n) {
         if (n === 0) {
@@ -458,23 +458,14 @@ function clickLucas() {
         document.getElementById('resTriangular').innerHTML = computeTriangular(n);
     }
 
-function generateSequenceText(sequence, n) {
-    let result = [];
-    for (let i = 1; i <= n; i++) {
-        result.push(sequence(i));
-    }
-    return result.join(", ");
+function clickLucas() {
+    var n = parseInt(document.getElementById('n').value);
+    var lucasSequence = generateSequenceText(computeLucas, n);
+    document.getElementById('Lucas').innerHTML = computeLucas(n-1);//lucasSequence;
+    document.getElementById('resLucas').innerHTML = computeLucas(n)[n-1]; // 顯示第 n 個 Lucas 數
 }
+    
 
-function computeHarmonic(n) {
-    let result = 0;
-    let sequence = [];
-    for (let i = 1; i <= n; i++) {
-        result += 1 / i;
-        sequence.push(`1/${i}`);
-    }
-    return { sum: result.toFixed(4), sequence: sequence.join(", ") };
-}
 
 function clickHarmonic() {
     var n = parseInt(document.getElementById('n').value);
@@ -489,11 +480,7 @@ function clickHarmonic() {
         document.getElementById('resFibonacci').innerHTML = computeFibonacci(n);
     }
 
- /*   function clickLucas() {
-        var n = parseInt(document.getElementById('n').value);
-        document.getElementById('Lucas').innerHTML = generateSequenceText(computeLucas, n);
-        document.getElementById('resLucas').innerHTML = computeLucas(n);
-    }*/
+
 
     function computeAllSequence() {
         clickCatalan();
