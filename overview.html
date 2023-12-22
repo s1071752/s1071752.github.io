@@ -125,12 +125,13 @@
 
  <h2> Part 2</h2>
     <table>
-        <tr>
+    <tr bgcolor="ccddcc" ;>
+
             <th>Formula</th>
             <th>Sequence</th>
             <th>
                 <label><i>n</i> = </label>
-                <input type="number" id="n" min="0">
+                <input type="number" id="n" value="6" min="0">
             </th>
             <th><button type="button" onclick="computeAllSequence()">Compute All</button></th>
         </tr>
@@ -180,7 +181,7 @@
     <tr bgcolor="ccddcc" ;>
       <th>Formula</th>
       <th><label><i>m</i> = </label>
-        <input type="number" id="m1" value="6" min="0">
+        <input type="number" id="m1" value="4" min="0">
 
       </th>
       
@@ -210,8 +211,8 @@
     <tr bgcolor="ccddcc" ;>
 
       <th>Formula</th>
-      <th><label><i>n</i> = </label>
-        <input type="number" id="n2" value="4" min="0">
+      <th><label><i>m</i> = </label>
+        <input type="number" id="n2" value="6" min="0">
 
       </th>
       <th></th>
@@ -376,6 +377,15 @@ function generateSequenceText(sequence, n) {
     return result.join(", ");
 }
 
+/*
+function generateSequenceText(sequence, n) {
+    let result = [];
+    for (let i = 1; i <= n; i++) {
+        result.push(sequence(i));
+    }
+    return result.join(", ");
+}*/
+
 function computeHarmonic(n) {
     let result = 0;
     let sequence = [];
@@ -399,17 +409,36 @@ function computeCatalan(n) {
 }
 
 
+function computeTriangular(n) {
+    let sum = (n * (n + 1)) / 2;
+    return sum;
+}
+
+function computeHarmonic(n) {
+    let result = 0;
+    let sequence = [];
+    for (let i = 1; i <= n; i++) {
+        result += 1 / i;
+        sequence.push(`1/${i}`);
+    }
+    return { sum: `1/${result.toFixed(4)}`, sequence: sequence.join(", ") };
+}
+
+/*
     function computeTriangular(n) {
         return (n * (n + 1)) / 2;
     }
 
-    function computeHarmonic(n) {
-        let result = 0;
-        for (let i = 1; i <= n; i++) {
-            result += 1 / i;
-        }
-        return result.toFixed(4);
+function computeHarmonic(n) {
+    let result = 0;
+    let sequence = [];
+    for (let i = 1; i <= n; i++) {
+        result += 1 / i;
+        sequence.push(`1/${i}`);
     }
+    return { sum: result.toFixed(4), sequence: sequence.join(", ") };
+}*/
+
 
 function computeLucas(n) {
     if (n === 0) {
@@ -489,6 +518,51 @@ function clickHarmonic() {
         clickFibonacci();
         clickLucas();
     }
+
+
+
+/*part3*/
+function computeEulerian(m, k) {
+    if (k === 0 && m === 0) {
+        return 1;
+    } else if (k < 0 || k >= m) {
+        return 0;
+    } else {
+        return (k + 1) * computeEulerian(m - 1, k) + (m - k) * computeEulerian(m - 1, k - 1);
+    }
+}
+
+function computeStirling(m, n) {
+    if (n === 0 && m === 0) {
+        return 1;
+    } else if (n > m || n <= 0) {
+        return 0;
+    } else {
+        return n * computeStirling(m - 1, n) + computeStirling(m - 1, n - 1);
+    }
+}
+
+function clickEulerian() {
+    var m = parseInt(document.getElementById('m1').value);
+    var result = [];
+    for (var k = 0; k <= m - 1; k++) {
+        result.push(computeEulerian(m, k));
+    }
+    document.getElementById('Eulerian').innerHTML = result.join(", ");
+}
+
+function clickStir() {
+    var m = parseInt(document.getElementById('m1').value);
+    var n = parseInt(document.getElementById('n2').value);
+    var result = [];
+    for (var i = 1; i <= n; i++) {
+        result.push(computeStirling(m, i));
+    }
+    document.getElementById('Stirling').innerHTML = result.join(", ");
+}
+
+
+
   </script>
 
 </body>
