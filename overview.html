@@ -188,7 +188,7 @@
     <tr bgcolor="ccddcc" ;>
       <th>Formula</th>
       <th><label><i>m</i> = </label>
-        <input type="number" id="m1" value="7" min="0">
+        <input type="number" id="m1" value="6" min="0">
 
       </th>
       
@@ -199,7 +199,12 @@
 
     <tr>
 
-      <td>  formula  </td>
+      <td>  
+        <p><i>a<sub>m, k</sub> = (m-k)a<sub>m-1, k-1</sub>+ (k+1)a<sub>m-1, k</sub>, 0≤k≤m-1;</i></p>
+        <p><i>a<sub>0, 0</sub>=1;</i></p>
+        <p>a<sub>m, k</sub>=0, k≥m;</p>
+        <p>a<sub>m, k</sub>=0, k<0;</p>
+      </td>
       <td>  <span id="Eulerian"></span>    </td>
       <td>  <button type="button" onclick="clickEulerian()">Eulerian numbers</button>   </td>
       <td align="left">   # Selections/Combinations of size <i>r</i> from <i>n</i> distinct objects   </td>
@@ -214,7 +219,7 @@
 
       <th>Formula</th>
       <th><label><i>n</i> = </label>
-        <input type="number" id="n2" value="7" min="0">
+        <input type="number" id="n2" value="4" min="0">
 
       </th>
       <th></th>
@@ -223,7 +228,7 @@
     </tr>
 
     <tr>
-      <td>  formula</td>
+      <td>  <i>S</i>(<i>m</i>, <i>n</i>)</td>
       <td>  <span id="Stirling"></span>    </td>
       <td>  <button type="button" onclick="clickStir()">Stirling number</button>   </td>
       <td align="left">   #Stirling number of the second kind with respect to m, n for 1<=n<=m (i.e., S_sub(m,1), S_sub(m,2), ... , S_sub(m,n) ) </td>
