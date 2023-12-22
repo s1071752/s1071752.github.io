@@ -131,7 +131,7 @@
             <th>Sequence</th>
             <th>
                 <label><i>n</i> = </label>
-                <input type="number" id="n" value="6" min="0">
+                <input type="number" id="n2" value="6" min="0">
             </th>
             <th><button type="button" onclick="computeAllSequence()">Compute All</button></th>
         </tr>
@@ -476,7 +476,7 @@ function computeLucas(n) {
     }
 
     function clickCatalan() {
-        var n = parseInt(document.getElementById('n').value);
+        var n = parseInt(document.getElementById('n2').value);
         document.getElementById('Catalan').innerHTML = generateSequenceText(computeCatalan, n);
         document.getElementById('resCatalan').innerHTML = computeCatalan(n);
     }
@@ -488,13 +488,13 @@ function calculateTriangularSum(n) {
     return sum;
 }
     function clickTriangular() {
-        var n = parseInt(document.getElementById('n').value);
+        var n = parseInt(document.getElementById('n2').value);
         document.getElementById('Triangular').innerHTML = generateSequenceText(computeTriangular, n);
         document.getElementById('resTriangular').innerHTML = calculateTriangularSum(n);
     }
 
 function clickLucas() {
-    var n = parseInt(document.getElementById('n').value);
+    var n = parseInt(document.getElementById('n2').value);
     var lucasSequence = generateSequenceText(computeLucas, n);
     document.getElementById('Lucas').innerHTML = computeLucas(n-1);//lucasSequence;
     document.getElementById('resLucas').innerHTML = computeLucas(n)[n-1]; // 顯示第 n 個 Lucas 數
@@ -503,7 +503,7 @@ function clickLucas() {
 
 
 function clickHarmonic() {
-    var n = parseInt(document.getElementById('n').value);
+    var n = parseInt(document.getElementById('n2').value);
     var harmonicResult = computeHarmonic(n);
     document.getElementById('Harmonic').innerHTML = harmonicResult.sequence;
     document.getElementById('resHarmonic').innerHTML = harmonicResult.sum;
