@@ -129,55 +129,51 @@
   <table>
     <tr bgcolor="ccddcc" ;>
       <th>Formula</th>
+      <th>Sequence</th>
       <th>
         <label><i>n</i> = </label>
         <input type="number" id="n" value="7" min="0">
       </th>
       <th><button type="button" onclick="computeAllSequence()">Compute All</button></th>
-
-      <th>Memo</th>
-
     </tr>
 
     <tr>
       <td>Triangular Number <label> <i>C<sub>n</sub> </i></label></td>
+      <td align="left"><span id="Catalan"></span> </td>
       <td><span id="resCatalan"></span></td>
       <td><button type="button" onclick="clickCatalan()">Catalan</button></td>
-
-      <td align="left">   # Permutations of size <i>r</i> from <i>n</i> distinct objects    </td>
     </tr>
 
     <tr>
       <td>  Triangular Number <label>1+2+3+4+...+<i>n</i></label>  </td>
+      <td align="left"><span id="Triangular"></span>  </td>
       <td>  <span id="resTriangular"></span>    </td>
       <td>  <button type="button" onclick="clickTriangular()">Triangular</button>   </td>
-
-      <td align="left">   # Selections/Combinations of size <i>r</i> from <i>n</i> distinct objects   </td>
     </tr>
 
     <tr>
 
       <td>  Harmonic Number <label><i>H<sub>n</sub></i>=1+1/2+1/2+...+1/<i>n</i></label> </td>
-      <td>  <span id="resHarmonic"></span>  </td>
-      <td>  <button type="button" onclick="clickHarmonic()">Harmonic</button>   </td>
+      <td align="left"><span id="resHarmonic"></span>  </td>
 
-      <td align="left">      # Arrangements with repetition of size <i>r</i> from <i>n</i> distinct objects    </td>
+      <td>  <span id="Harmonic"></span>  </td>
+      <td>  <button type="button" onclick="clickHarmonic()">Harmonic</button>   </td>
     </tr>
 
     <tr>
       <td>  Fibonacci Numbers <label>  <i>F<sub>n</sub></i>  </label>   </td>
+      <td align="left"> <span id="Fibonacci"></span>  </td>
+
       <td>  <span id="resFibonacci"></span>  </td>
       <td>  <button type="button" onclick="clickFibonacci()">Fibonacci</button>   </td>
-
-      <td align="left">   # Selections with repetition of size <i>r</i> from <i>n</i> distinct objects    </td>
     </tr>
 
     <tr>
       <td>  Lucas Numbers <label> <i>L<sub>n</sub></i></label>   </td>
+      <td align="left">   <span id="Lucas"></span>  </td>
+
       <td>  <span id="resLucas"></span>  </td>
       <td>  <button type="button" onclick="clickLucas()">Lucas </button>   </td>
-
-      <td align="left">   # Selections with repetition of size <i>r</i> from <i>n</i> distinct objects    </td>
     </tr>
     
   </table>
@@ -207,7 +203,7 @@
       </td>
       <td>  <span id="Eulerian"></span>    </td>
       <td>  <button type="button" onclick="clickEulerian()">Eulerian numbers</button>   </td>
-      <td align="left">   # Selections/Combinations of size <i>r</i> from <i>n</i> distinct objects   </td>
+      <td align="left">   # Eulerian numbers with respect to m, k for 0<=k<=m-1 (i.e., a_sub(m,0), a_sub(m,1), ... , a_sub(m,m-1) )   </td>
 
     </tr>
 
