@@ -125,59 +125,57 @@
 
   </table>
 
-  <h2> Part 2</h2>
-  <table>
-    <tr bgcolor="ccddcc" ;>
-      <th>Formula</th>
-      <th>Sequence</th>
-      <th>
-        <label><i>n</i> = </label>
-        <input type="number" id="n" value="7" min="0">
-      </th>
-      <th><button type="button" onclick="computeAllSequence()">Compute All</button></th>
-    </tr>
+ <h2> Part 2</h2>
+    <table>
+        <tr>
+            <th>Formula</th>
+            <th>Sequence</th>
+            <th>
+                <label><i>n</i> = </label>
+                <input type="number" id="n" min="0">
+            </th>
+            <th><button type="button" onclick="computeAllSequence()">Compute All</button></th>
+        </tr>
 
-    <tr>
-      <td>Triangular Number <label> <i>C<sub>n</sub> </i></label></td>
-      <td align="left"><span id="Catalan"></span> </td>
-      <td><span id="resCatalan"></span></td>
-      <td><button type="button" onclick="clickCatalan()">Catalan</button></td>
-    </tr>
+        <tr>
+            <td>Catalan Number <label> <i>C<sub>n</sub> </i></label></td>
+            <td align="left"><span id="Catalan"></span></td>
+            <td><span id="resCatalan"></span></td>
+            <td><button type="button" onclick="clickCatalan()">Catalan</button></td>
+        </tr>
 
-    <tr>
-      <td>  Triangular Number <label>1+2+3+4+...+<i>n</i></label>  </td>
-      <td align="left"><span id="Triangular"></span>  </td>
-      <td>  <span id="resTriangular"></span>    </td>
-      <td>  <button type="button" onclick="clickTriangular()">Triangular</button>   </td>
-    </tr>
+        <tr>
+            <td>  Triangular Number <label>1+2+3+4+...+<i>n</i></label>  </td>
+            <td align="left"><span id="Triangular"></span></td>
+            <td>  <span id="resTriangular"></span>    </td>
+            <td>  <button type="button" onclick="clickTriangular()">Triangular</button>   </td>
+        </tr>
 
-    <tr>
+        <tr>
 
-      <td>  Harmonic Number <label><i>H<sub>n</sub></i>=1+1/2+1/2+...+1/<i>n</i></label> </td>
-      <td align="left"><span id="resHarmonic"></span>  </td>
+            <td>  Harmonic Number <label><i>H<sub>n</sub></i>=1+1/2+1/3+...+1/<i>n</i></label> </td>
+            <td align="left"><span id="Harmonic"></span></td>
 
-      <td>  <span id="Harmonic"></span>  </td>
-      <td>  <button type="button" onclick="clickHarmonic()">Harmonic</button>   </td>
-    </tr>
+            <td>  <span id="resHarmonic"></span>  </td>
+            <td>  <button type="button" onclick="clickHarmonic()">Harmonic</button>   </td>
+        </tr>
 
-    <tr>
-      <td>  Fibonacci Numbers <label>  <i>F<sub>n</sub></i>  </label>   </td>
-      <td align="left"> <span id="Fibonacci"></span>  </td>
+        <tr>
+            <td>  Fibonacci Numbers <label>  <i>F<sub>n</sub></i>  </label>   </td>
+            <td align="left"> <span id="Fibonacci"></span></td>
 
-      <td>  <span id="resFibonacci"></span>  </td>
-      <td>  <button type="button" onclick="clickFibonacci()">Fibonacci</button>   </td>
-    </tr>
+            <td>  <span id="resFibonacci"></span>  </td>
+            <td>  <button type="button" onclick="clickFibonacci()">Fibonacci</button>   </td>
+        </tr>
 
-    <tr>
-      <td>  Lucas Numbers <label> <i>L<sub>n</sub></i></label>   </td>
-      <td align="left">   <span id="Lucas"></span>  </td>
+        <tr>
+            <td>  Lucas Numbers <label> <i>L<sub>n</sub></i></label>   </td>
+            <td align="left">   <span id="Lucas"></span></td>
 
-      <td>  <span id="resLucas"></span>  </td>
-      <td>  <button type="button" onclick="clickLucas()">Lucas </button>   </td>
-    </tr>
-    
-  </table>
-
+            <td>  <span id="resLucas"></span>  </td>
+            <td>  <button type="button" onclick="clickLucas()">Lucas </button>   </td>
+        </tr>
+    </table>
   
   <h2> Part 3</h2>
   <table>
@@ -369,45 +367,77 @@
       document.getElementById("resSelectrofn").innerHTML = Comb(n + r - 1, r);
 
     }
-// Triangular Number function
-    function computeTriangular(n) {
-        let result = (n * (n + 1)) / 2;
-        return result;
+
+
+    /*part2*/
+function generateSequenceText(sequence, n) {
+        let result = [];
+        for (let i = 0; i < n; i++) {
+            result.push(sequence(i));
+        }
+        return result.join(", ");
     }
 
-    // Harmonic Number function
+function computeCatalan(n) {
+    if (n === 0) {
+        return 1;
+    } else {
+        let result = 1;
+        for (let i = 0; i < n; i++) {
+            result = result * 2 * (2 * i + 1) / (i + 2);
+        }
+        return result;
+    }
+}
+
+
+    function computeTriangular(n) {
+        return (n * (n + 1)) / 2;
+    }
+
     function computeHarmonic(n) {
         let result = 0;
         for (let i = 1; i <= n; i++) {
             result += 1 / i;
         }
+        return result.toFixed(4);
+    }
+
+function computeLucas(n) {
+    if (n === 0) {
+        return 2;
+    } else if (n === 1) {
+        return 1;
+    } else {
+        let a = 2, b = 1, temp;
+        let result = [a, b];
+        for (let i = 2; i <= n; i++) {
+            temp = a + b;
+            a = b;
+            b = temp;
+            result.push(b);
+        }
         return result;
     }
+}
 
-    // Fibonacci Numbers function
+function clickLucas() {
+    var n = parseInt(document.getElementById('n').value);
+    var lucasSequence = generateSequenceText(computeLucas, n);
+    document.getElementById('Lucas').innerHTML = computeLucas(n-1);//lucasSequence;
+    document.getElementById('resLucas').innerHTML = computeLucas(n)[n-1]; // 顯示第 n 個 Lucas 數
+}
+
+
+
     function computeFibonacci(n) {
-        if (n <= 1) {
-            return n;
-        } else {
-            let a = 0, b = 1, temp;
-            for (let i = 2; i <= n; i++) {
-                temp = a + b;
-                a = b;
-                b = temp;
-            }
-            return b;
-        }
-    }
-
-    // Lucas Numbers function
-    function computeLucas(n) {
         if (n === 0) {
             return 2;
         } else if (n === 1) {
             return 1;
         } else {
-            let a = 2, b = 1, temp;
-            for (let i = 2; i <= n; i++) {
+            let a = 1, b = 1, temp;
+            for (let i = 2; i < n; i++) {
                 temp = a + b;
                 a = b;
                 b = temp;
@@ -418,28 +448,52 @@
 
     function clickCatalan() {
         var n = parseInt(document.getElementById('n').value);
-        document.getElementById('resCatalan').innerHTML = computeTriangular(n);
+        document.getElementById('Catalan').innerHTML = generateSequenceText(computeCatalan, n);
+        document.getElementById('resCatalan').innerHTML = computeCatalan(n);
     }
 
     function clickTriangular() {
         var n = parseInt(document.getElementById('n').value);
+        document.getElementById('Triangular').innerHTML = generateSequenceText(computeTriangular, n);
         document.getElementById('resTriangular').innerHTML = computeTriangular(n);
     }
 
-    function clickHarmonic() {
-        var n = parseInt(document.getElementById('n').value);
-        document.getElementById('resHarmonic').innerHTML = computeHarmonic(n).toFixed(4);
+function generateSequenceText(sequence, n) {
+    let result = [];
+    for (let i = 1; i <= n; i++) {
+        result.push(sequence(i));
     }
+    return result.join(", ");
+}
+
+function computeHarmonic(n) {
+    let result = 0;
+    let sequence = [];
+    for (let i = 1; i <= n; i++) {
+        result += 1 / i;
+        sequence.push(`1/${i}`);
+    }
+    return { sum: result.toFixed(4), sequence: sequence.join(", ") };
+}
+
+function clickHarmonic() {
+    var n = parseInt(document.getElementById('n').value);
+    var harmonicResult = computeHarmonic(n);
+    document.getElementById('Harmonic').innerHTML = harmonicResult.sequence;
+    document.getElementById('resHarmonic').innerHTML = harmonicResult.sum;
+}
 
     function clickFibonacci() {
         var n = parseInt(document.getElementById('n').value);
+        document.getElementById('Fibonacci').innerHTML = generateSequenceText(computeFibonacci, n);
         document.getElementById('resFibonacci').innerHTML = computeFibonacci(n);
     }
 
-    function clickLucas() {
+ /*   function clickLucas() {
         var n = parseInt(document.getElementById('n').value);
+        document.getElementById('Lucas').innerHTML = generateSequenceText(computeLucas, n);
         document.getElementById('resLucas').innerHTML = computeLucas(n);
-    }
+    }*/
 
     function computeAllSequence() {
         clickCatalan();
